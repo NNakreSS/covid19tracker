@@ -13,12 +13,12 @@ export const fetchGetcountrys = createAsyncThunk(
 
 export const fetchGetTotal = createAsyncThunk(
   "covid/fetchGetTotal",
-  async (countrie) => {
+  async (countrys) => {
     const { data } = await axios(
       `${import.meta.env.VITE_BASE_URL}/reports/total?`,
       {
         params: {
-          ...(countrie && { iso: countrie }),
+          ...(countrys && { iso: countrys }),
         },
       }
     );
@@ -35,7 +35,7 @@ const initialState = {
 };
 
 const reducers = {
-  selectCountrie(state, action) {
+  selectcountrys(state, action) {
     state.selectedCountry = action.payload;
   },
 };
@@ -73,4 +73,4 @@ const covidSlice = createSlice({
 });
 
 export default covidSlice.reducer;
-export const { selectCountrie } = covidSlice.actions;
+export const { selectcountrys } = covidSlice.actions;

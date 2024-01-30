@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { selectCountrie } from "../redux/covidSlice";
+import { selectcountrys } from "../redux/covidSlice";
 
 const Select = () => {
   const dispatch = useDispatch();
@@ -8,10 +8,10 @@ const Select = () => {
   return (
     <select
       value={selectedCountry ? selectedCountry : ""}
-      onChange={(e) => dispatch(selectCountrie(e.target.value))}
+      onChange={(e) => dispatch(selectcountrys(e.target.value))}
       className="mb-5 border-b-2 border-b-black p-2 outline-none font-bold sticky top-5 rounded-md"
     >
-      <option value="">Select Countrie</option>
+      <option value="">Select countrys</option>
       {countrys?.map((item, key) => (
         <option key={key} value={item.iso}>
           {item.name}
