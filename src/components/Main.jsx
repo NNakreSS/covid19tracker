@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 // redux
-import { fetchGetCountries, fetchGetTotal } from "../redux/covidSlice";
+import { fetchGetcountrys, fetchGetTotal } from "../redux/covidSlice";
 import { useDispatch, useSelector } from "react-redux";
 // components
 import Cards from "./Cards";
@@ -10,15 +10,15 @@ import Chart from "./Chart";
 
 const Main = () => {
   const dispatch = useDispatch();
-  const { status, selectedCountrie } = useSelector((state) => state.covid);
+  const { status, selectedCountry } = useSelector((state) => state.covid);
 
   useEffect(() => {
-    dispatch(fetchGetCountries());
+    dispatch(fetchGetcountrys());
   }, []);
 
   useEffect(() => {
-    dispatch(fetchGetTotal(selectedCountrie));
-  }, [selectedCountrie]);
+    dispatch(fetchGetTotal(selectedCountry));
+  }, [selectedCountry]);
 
   if (status == "error") return <Error />;
   if (status == "pending") return <Loading />;

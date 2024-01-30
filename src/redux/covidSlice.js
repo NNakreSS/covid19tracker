@@ -1,8 +1,8 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-export const fetchGetCountries = createAsyncThunk(
-  "covid/fetchGetCountries",
+export const fetchGetcountrys = createAsyncThunk(
+  "covid/fetchGetcountrys",
   async () => {
     const { data } = await axios.get(
       `${import.meta.env.VITE_BASE_URL}/regions`
@@ -28,15 +28,15 @@ export const fetchGetTotal = createAsyncThunk(
 
 const initialState = {
   total: {},
-  countries: {},
-  selectedCountrie: null,
+  countrys: {},
+  selectedCountry: null,
   status: "idle",
   error: null,
 };
 
 const reducers = {
   selectCountrie(state, action) {
-    state.selectedCountrie = action.payload;
+    state.selectedCountry = action.payload;
   },
 };
 
@@ -54,13 +54,13 @@ const extraReducers = (builder) => {
       state.status = "pending";
     })
 
-    .addCase(fetchGetCountries.fulfilled, (state, action) => {
-      state.countries = action.payload;
+    .addCase(fetchGetcountrys.fulfilled, (state, action) => {
+      state.countrys = action.payload;
     })
-    .addCase(fetchGetCountries.pending, (state, action) => {
+    .addCase(fetchGetcountrys.pending, (state, action) => {
       console.log("ülke dataları bekleniyor...");
     })
-    .addCase(fetchGetCountries.rejected, (state, action) => {
+    .addCase(fetchGetcountrys.rejected, (state, action) => {
       console.warn("error : ", action.error.message);
     });
 };

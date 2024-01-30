@@ -12,7 +12,7 @@ import { Bar } from "react-chartjs-2";
 import { useSelector } from "react-redux";
 
 const Chart = () => {
-  const { selectedCountrie, total } = useSelector((state) => state.covid);
+  const { selectedCountry, total } = useSelector((state) => state.covid);
 
   Chartjs.register(
     CategoryScale,
@@ -31,7 +31,7 @@ const Chart = () => {
       },
       title: {
         display: true,
-        text: `Current state in ${selectedCountrie || "the world"}`,
+        text: `Current state in ${selectedCountry || "the world"}`,
       },
     },
   };
