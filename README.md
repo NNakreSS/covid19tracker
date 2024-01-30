@@ -1,5 +1,7 @@
 # React + Vite  / Redux
 
+[Live Demo](https://nnakress.github.io/covid19tracker/)
+
 > yarn
  
 > yarn dev
